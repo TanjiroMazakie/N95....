@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Page</title>
+    <style>
+        body {
+            background-image: url('background.jpg'); /* URL to your background image */
+            background-size: cover; /* Cover the entire page */
+            background-attachment: fixed; /* Make the background fixed */
+            background-position: center; /* Center the background */
+            background-repeat: no-repeat; /* Prevent the background from repeating */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+        .welcome-text {
+            font-size: 72px; /* Adjust the size as needed */
+            font-weight: bold;
+            text-decoration: underline;
+            text-align: center; /* Center align the text */
+            margin-top: 20%; /* Adjust the top margin to center vertically */
+        }
+        .help-text {
+            font-size: 24px; /* Adjust the size as needed */
+            text-align: center; /* Center align the text */
+            margin-top: 20px; /* Adjust the top margin to space it from the welcome text */
+        }
+        .box-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allows boxes to wrap to the next line if needed */
+            margin-top: 20px; /* Adjust the top margin to space it from the help text */
+        }
+        .box {
+            width: 150px;
+            height: 100px;
+            background-color: lightblue; /* Change the color to light blue */
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            text-align: center;
+        }
+        .box a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .blue-line {
+            height: 20px; /* Increase the height to make the line thicker */
+            background-color: blue; /* Set the color of the line */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Space between items */
+            padding: 5px 10px; /* Add padding for better spacing */
+            position: absolute; /* Fix position */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+            width: 100%; /* Ensure it spans the width */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .blue-line .home-search {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+        }
+        .nav-item {
+            color: white; /* Set text color to white */
+            font-size: 18px; /* Set font size */
+            margin-right: 20px; /* Space between text items */
+        }
+        .nav-item a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .search-bar {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            background-color: white; /* Set background color to white */
+            padding: 3px; /* Padding for better spacing */
+            border-radius: 3px; /* Rounded corners */
+            margin-right: 20px; /* Space between search bar and next item */
+        }
+        .search-bar input {
+            border: none; /* Remove border */
+            outline: none; /* Remove outline */
+            padding: 3px; /* Padding for input */
+            margin-right: 3px; /* Space between input and icon */
+            font-size: 14px; /* Set font size */
+        }
+        .search-bar img {
+            width: 16px; /* Set icon width */
+            height: 16px; /* Set icon height */
+        }
+        .user-name {
+            color: white; /* Set user name color to white */
+            font-size: 18px; /* Set font size */
+        }
+        .modal {
+            display: block; /* Show modal by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .login-input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .login-button {
+            background-color: blue;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .skip-button {
+            background-color: grey;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .container {
+            padding: 16px;
+        }
+        .error-message {
+            color: red; /* Error message color */
+            font-size: 14px; /* Error message font size */
+            text-align: center; /* Center align error message */
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-line">
+        <div class="home-search">
+            <div class="nav-item"><a href="index.html">Home</a></div> <!-- Link to the main HTML file -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <img src="search-icon.png" alt="Search Icon">
+            </div>
+            <div class="nav-item"><a href="members.html">Members</a></div>
+            <div class="nav-item"><a href="group.html">Group</a></div>
+            <div class="nav-item"><a href="link.html">Link</a></div>
+            <div class="nav-item"><a href="help.html">Help</a></div>
+            <div class="nav-item"><a href="guide.html">Guide</a></div>
+            <div class="nav-item"><a href="tuition.html">Tuition</a></div>
+            <div class="nav-item"><a href="polls.html">Polls</a></div>
+            <div class="nav-item"><a href="leaders.html">Leaders</a></div>
+        </div>
+        <div id="userName" class="user-name"></div> <!-- User name display -->
+    </div>
+
+    <!-- The Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('loginModal').style.display='none'">&times;</span>
+            <div class="container">
+                <label for="email"><b>Enter Email ID</b></label>
+                <input type="text" class="login-input" placeholder="Enter Email ID" id="email" required>
+                
+                <label for="psw"><b>Enter Passcode</b></label>
+                <input type="password" class="login-input" placeholder="Enter Passcode" id="psw" required>
+                
+                <button type="button" class="login-button" onclick="validateLogin()">Log in</button>
+                <button type="button" class="skip-button" onclick="skipLogin()">Skip</button>
+                <p id="error-message" class="error-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome-text">
+        WELCOME TO N95
+    </div>
+    <div class="help-text">
+        What can I help you in?
+    </div>
+    <div class="box-container">
+        <div class="box"><a href="cricket.html">Cricket (Gully Cricket Council)</a></div>
+        <div class="box"><a href="football.html">Football (CF Football League)</a></div>
+        <div class="box"><a href="comic.html">Comic (View Comics)</a></div>
+        <div class="box"><a href="gaming.html">Gaming (View Gaming)</a></div>
+        <div class="box"><a href="cycler.html">Cycler (Morning Cycler)</a></div>
+    </div>
+  </div>
+     </script>
+    <script>
+        // Display the login modal when the page loads
+        window.onload = function() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        // Predefined list of valid emails
+        const validEmails = [
+            "aarav.n95",
+            "arsh.n95",
+            "arshaan.n95",
+            "shreyash.n95",
+            "akshit.n95",
+            "earth.n95",
+            "neerav.n95",
+            "darsh.n95",
+            "adi.n95",
+            "shaurya.n95",
+            "rishab.n95",
+            "priyanshu.n95",
+            "aryan.n95",
+            "akkie.n95",
+            "vignesh.n95",
+            "subh.n95",
+            "ayush.n95",
+            "akshit-jha.n95",
+            "aryan.n95",
+            "vishwa.n95",
+            "ashwin.n95",
+            "tejas.n95",
+            "kushagra.n95"
+        ];
+
+        // Function to capitalize the first letter of a name
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        // Function to validate login credentials
+        function validateLogin() {
+            const email = document.getElementById('email').value;
+            const passcode = document.getElementById('psw').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (validEmails.includes(email)) {
+                // Extract the name from the email and capitalize the first letter
+                const userName = capitalizeFirstLetter(email.split('.')[0]);
+                // Display the user's name
+                document.getElementById('userName').textContent = userName;
+                // Hide the modal and proceed if the email is valid (passcode can be any value for this example)
+                document.getElementById('loginModal').style.display = 'none';
+                errorMessage.textContent = '';
+            } else {
+                // Show error message if the email is invalid
+                errorMessage.textContent = 'Invalid email or passcode. Please try again.';
+            }
+        }
+
+        // Function to skip the login
+        function skipLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

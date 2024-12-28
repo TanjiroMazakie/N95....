@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Creation</title>
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: black;
+        }
+        .rectangle {
+            width: 80%;
+            padding: 50px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+        }
+        .n95 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .sign-in {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .use-account {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .email-input {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .create-account {
+            font-size: 16px;
+            color: blue;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        .next-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .message-box {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid red;
+            border-radius: 10px;
+            background-color: #ffe6e6;
+            color: red;
+            font-size: 16px;
+        }
+        .result-box {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="rectangle">
+        <div class="n95">N95</div>
+        <div class="sign-in">SIGN IN TO N95</div>
+        <div class="use-account">Use your N95 account</div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div class="create-account" onclick="showMessage()">Create your account</div>
+            <input type="text" class="email-input" id="email" placeholder="Enter your email">
+        </div>
+        <button class="next-button" onclick="validateEmail()">Next</button>
+    </div>
+    <div id="message-box" class="message-box">
+        We can't create your custom N95 account according to the rules of it that if the person can be hacked if they had the custom email. If you need email, contact 8736883934
+    </div>
+
+    <div id="result-box" class="result-box">
+        <div id="result-message"></div>
+        <button class="next-button" id="next-button" onclick="goToPasscodePage()">Next</button>
+    </div>
+
+    <script>
+        const validEmails = [
+            "aarav.n95",
+            "arsh.n95",
+            "arshaan.n95",
+            "shreyash.n95",
+            "akshit.n95",
+            "earth.n95",
+            "neerav.n95",
+            "darsh.n95",
+            "adi.n95",
+            "shaurya.n95",
+            "rishab.n95",
+            "priyanshu.n95",
+            "aryan.n95",
+            "akkie.n95",
+            "vignesh.n95",
+            "subh.n95",
+            "ayush.n95",
+            "akshit-jha.n95",
+            "aryan.n95",
+            "vishwa.n95",
+            "ashwin.n95",
+            "tejas.n95",
+            "kushagra.n95"
+        ];
+
+        function showMessage() {
+            document.getElementById('message-box').style.display = 'block';
+        }
+
+        function validateEmail() {
+            const emailInput = document.getElementById('email').value.trim();
+            if (validEmails.includes(emailInput)) {
+                document.querySelector(".rectangle").style.display = 'none';
+                const resultBox = document.getElementById('result-box');
+                resultBox.style.display = 'flex';
+                document.getElementById('result-message').innerText = "CORRECT EMAIL";
+                document.getElementById('next-button').style.display = 'block';
+                localStorage.setItem('userEmail', emailInput); // Store the email in localStorage
+            } else {
+                showResult("INCORRECT EMAIL");
+            }
+        }
+
+        function showResult(message) {
+            document.body.innerHTML = `<div style="display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;font-size:48px;font-weight:bold;">
+                ${message}
+            </div>`;
+        }
+
+        function goToPasscodePage() {
+            window.location.href = 'passcode-page.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Give Feedback</title>
+    <style>
+        body {
+            background-color: blue; /* Set the background to blue */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
+        .large-text {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .feedback-box {
+            margin-top: 20px;
+        }
+        .feedback-input {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .send-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p class="large-text">Important: N95 may not make a change you request if:</p>
+        <ul>
+            <li>It contains inappropriate content.</li>
+            <li>We can't confirm its accuracy.</li>
+        </ul>
+        <p>Generally, N95 only changes or removes content based on N95 Search policies. For example, you can provide feedback about the “People also search for” section, but we can only remove items if they don’t follow N95’s policies. Because this content is based on public information on the web and automatically developed by our system, we can’t customize it or add suggestions.</p>
+        <p>If you believe you have located a specific piece of content that is unlawful, you may use this form to Report a legal removal issue.</p>
+        
+        <div class="feedback-box">
+            <textarea class="feedback-input" placeholder="Write your feedback here..."></textarea>
+            <button class="send-button" onclick="submitFeedback()">Send</button>
+            <p class="error-message" id="error-message">Error: Write something first!</p>
+        </div>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            const feedbackInput = document.querySelector('.feedback-input');
+            const errorMessage = document.getElementById('error-message');
+            if (feedbackInput.value.trim() === '') {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                window.location.href = 'feedback-submitted.html';
+            }
+        }
+    </script>
+</body>
+</html>

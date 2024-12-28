@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polls Page</title>
+    <style>
+        body {
+            background-color: blue; /* Set the background to blue */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+        .blue-line {
+            height: 15px; /* Adjust the height to make the line moderately thicker */
+            background-color: blue; /* Set the color of the line */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            padding: 5px 10px; /* Add padding for better spacing */
+        }
+        .blue-line .home-search {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+        }
+        .nav-item {
+            color: white; /* Set text color to white */
+            font-size: 18px; /* Set font size */
+            margin-right: 20px; /* Space between text items */
+            position: relative;
+        }
+        .nav-item a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .nav-item.active::after {
+            content: ''; /* Empty content for the pseudo-element */
+            position: absolute;
+            bottom: -5px; /* Position it below the text */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: yellow; /* Yellow line color */
+        }
+        .search-bar {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            background-color: white; /* Set background color to white */
+            padding: 3px; /* Padding for better spacing */
+            border-radius: 3px; /* Rounded corners */
+            margin-right: 20px; /* Space between search bar and next item */
+        }
+        .search-bar input {
+            border: none; /* Remove border */
+            outline: none; /* Remove outline */
+            padding: 3px; /* Padding for input */
+            margin-right: 3px; /* Space between input and icon */
+            font-size: 14px; /* Set font size */
+        }
+        .search-bar img {
+            width: 16px; /* Set icon width */
+            height: 16px; /* Set icon height */
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
+        .content h1 {
+            font-size: 32px; /* Make the text big */
+            margin: 0 0 20px 0; /* Margin for spacing */
+        }
+        .content p {
+            font-size: 18px;
+            margin: 0 0 10px 0; /* Margin for spacing */
+        }
+        .poll-box {
+            background-color: #005cbf; /* Set the background color to blue */
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .poll-input {
+            display: none; /* Hide the input box initially */
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+        }
+        .options-container {
+            margin-top: 20px;
+        }
+        .option-input {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 18px;
+            width: calc(100% - 40px);
+            border-radius: 5px;
+            border: none;
+        }
+        .add-option {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: darkblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .conduct-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #005cbf;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .poll-list {
+            margin-top: 30px;
+        }
+        .poll-item {
+            background-color: white;
+            color: black;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .poll-options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .poll-options li {
+            margin-top: 10px;
+        }
+        .vote-button {
+            background-color: #005cbf;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        .vote-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: green;
+        }
+        .login-box {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-input {
+            padding: 10px;
+            font-size: 18px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        .login-button {
+            background-color: #005cbf;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .clear-button {
+            background-color: #005cbf;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-line">
+        <div class="home-search">
+            <div class="nav-item"><a href="index.html">Home</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <img src="search-icon.png" alt="Search Icon">
+            </div>
+            <div class="nav-item"><a href="members.html">Members</a></div>
+            <div class="nav-item"><a href="group.html">Group</a></div>
+            <div class="nav-item"><a href="help.html">Help</a></div>
+            <div class="nav-item"><a href="guide.html">Guide</a></div>
+            <div class="nav-item"><a href="tuition.html">Tuition</a></div>
+            <div class="nav-item active"><a href="polls.html">Polls</a></div>
+            <div class="nav-item"><a href="leaders.html">Leaders</a></div>
+        </div>
+    </div>
+
+    <!-- Main content of the Polls page -->
+    <div class="content">
+        <h1>WHAT IS POLL?</h1>
+        <p>A poll is a survey in which people are asked their opinions about something, usually in order to find out how popular something is or what people intend to do in the future.</p>
+        <p>There are polls in our WhatsApp groups which you can see below:</p>
+        <p>NO POLLS YET !!! ❌</p>
+        <div class="poll-box" onclick="conductPoll()">Conduct a Poll</div>
+        <input type="text" class="poll-input" placeholder="Type Poll Question">
+        <div class="options-container" style="display: none;">
+            <p>Options:</p>
+            <input type="text" class="option-input" placeholder="Type Option">
+            <button class="add-option" onclick="addOption()">+</button>
+            <button class="conduct-button" onclick="conduct()">Conduct</button>
+        </div>
+    </div>
+
+    <!-- Login Box -->
+    <div class="login-box" style="display: none;">
+        <h2>Login</h2>
+        <input type="text" class="login-input" placeholder="Enter Username">
+        <button class="login-button" onclick="login()">Login</button            </button>
+    </div>
+
+    <!-- Section to Display Conducted Polls -->
+    <div class="poll-list"></div>
+    
+    <!-- Clear All Polls Button -->
+    <button class="clear-button" onclick="clearAllPolls()">Clear All Polls</button>
+
+    <script>
+        function conductPoll() {
+            if (!isLoggedIn()) {
+                alert('Please login to your account first!');
+                return;
+            }
+
+            const currentUser = getCurrentUser();
+            let polls = JSON.parse(localStorage.getItem('polls')) || [];
+            const userPolls = polls.filter(poll => poll.createdBy === currentUser);
+
+            if (userPolls.length >= 3) {
+                alert('You can only create a maximum of 3 polls. Please delete an existing poll to create a new one.');
+                return;
+            }
+
+            const pollBox = document.querySelector('.poll-box');
+            const pollInput = document.querySelector('.poll-input');
+            const optionsContainer = document.querySelector('.options-container');
+            pollBox.style.display = 'none'; // Hide the button
+            pollInput.style.display = 'block'; // Show the text box
+            optionsContainer.style.display = 'block'; // Show options container
+        }
+
+        function addOption() {
+            const optionsContainer = document.querySelector('.options-container');
+            const newOption = document.createElement('input');
+            newOption.type = 'text';
+            newOption.className = 'option-input';
+            newOption.placeholder = 'Type Option';
+            optionsContainer.insertBefore(newOption, document.querySelector('.add-option'));
+        }
+
+        function conduct() {
+            console.log('Conduct button clicked'); // Debug message
+
+            const pollInput = document.querySelector('.poll-input');
+            const optionInputs = document.querySelectorAll('.option-input');
+            let valid = true;
+
+            // Remove existing error messages
+            const existingErrors = document.querySelectorAll('.error');
+            existingErrors.forEach(error => error.remove());
+
+            if (pollInput.value.trim() === '') {
+                const error = document.createElement('div');
+                error.className = 'error';
+                error.textContent = 'Error: Write something first!';
+                pollInput.insertAdjacentElement('afterend', error);
+                valid = false;
+            }
+
+            const options = [];
+            optionInputs.forEach((input) => {
+                if (input.value.trim() === '') {
+                    const error = document.createElement('div');
+                    error.className = 'error';
+                    error.textContent = 'Error: Write options first!';
+                    input.insertAdjacentElement('afterend', error);
+                    valid = false;
+                } else {
+                    options.push(input.value.trim());
+                }
+            });
+
+            if (valid) {
+                console.log('Poll is valid, saving poll'); // Debug message
+                const poll = {
+                    question: pollInput.value.trim(),
+                    options: options,
+                    votes: new Array(options.length).fill(0), // Initialize votes
+                    createdBy: getCurrentUser()
+                };
+                savePoll(poll);
+                displayPolls();
+                resetForm();
+            } else {
+                console.log('Poll is not valid'); // Debug message
+            }
+        }
+
+        function savePoll(poll) {
+            let polls = JSON.parse(localStorage.getItem('polls')) || [];
+            polls.push(poll);
+            localStorage.setItem('polls', JSON.stringify(polls));
+            console.log('Poll saved', poll); // Debug message
+        }
+
+        function displayPolls() {
+            const pollList = document.querySelector('.poll-list');
+            pollList.innerHTML = '';
+            let polls = JSON.parse(localStorage.getItem('polls')) || [];
+            polls.forEach((poll, index) => {
+                if (!poll.options || !poll.votes) {
+                    // Initialize missing properties
+                    if (!poll.options) poll.options = [];
+                    if (!poll.votes) poll.votes = new Array(poll.options.length).fill(0);
+                }
+                
+                const pollItem = document.createElement('div');
+                pollItem.className = 'poll-item';
+                pollItem.innerHTML = `
+                    <h3>This poll is created by ${poll.createdBy}</h3>
+                    <h4>${poll.question}</h4>
+                    <ul class="poll-options">
+                        ${poll.options.map((option, i) => `
+                            <li>
+                                <input type="radio" name="poll${index}" id="option${index}_${i}" value="${i}">
+                                <label for="option${index}_${i}">${option}</label>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <button class="vote-button" onclick="vote(${index})">Vote</button>
+                    ${poll.createdBy === getCurrentUser() ? `<button class="delete-button" onclick="deletePoll(${index})">Delete</button>` : ''}
+                    <div class="vote-info">
+                        ${poll.votes.map((vote, i) => `${poll.options[i]}: ${vote} votes`).join('<br>')}
+                    </div>
+                `;
+                pollList.appendChild(pollItem);
+            });
+        }
+
+        function vote(pollIndex) {
+            if (!isLoggedIn()) {
+                alert('Please login to your account first!');
+                return;
+            }
+
+            const selectedOption = document.querySelector(`input[name="poll${pollIndex}"]:checked`);
+            if (selectedOption) {
+                let polls = JSON.parse(localStorage.getItem('polls')) || [];
+                polls[pollIndex].votes[selectedOption.value]++;
+                localStorage.setItem('polls', JSON.stringify(polls));
+                alert('Vote submitted!');
+                displayPolls(); // Refresh polls to show updated votes
+            } else {
+                alert('Please select an option to vote.');
+            }
+        }
+
+        function deletePoll(pollIndex) {
+            let polls = JSON.parse(localStorage.getItem('polls')) || [];
+            if (polls[pollIndex].createdBy === getCurrentUser()) {
+                polls.splice(pollIndex, 1);
+                localStorage.setItem('polls', JSON.stringify(polls));
+                alert('Poll deleted!');
+                displayPolls(); // Refresh polls to show the updated list
+            } else {
+                alert('You can only delete your own polls!');
+            }
+        }
+
+        function isLoggedIn() {
+            return !!localStorage.getItem('currentUser');
+        }
+
+        function getCurrentUser() {
+            return localStorage.getItem('currentUser');
+        }
+
+        function login() {
+            const username = document.querySelector('.login-input').value.trim();
+            if (username) {
+                localStorage.setItem('currentUser', username);
+                alert('Logged in as ' + username);
+                document.querySelector('.login-box').style.display = 'none';
+                displayPolls(); // Refresh polls to show delete buttons for own polls
+            } else {
+                alert('Please enter a username to login.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!isLoggedIn()) {
+                document.querySelector('.login-box').style.display = 'block';
+            } else {
+                document.querySelector('.login-box').style.display = 'none';
+            }
+            displayPolls();
+        });
+
+        function resetForm() {
+            const pollBox = document.querySelector('.poll-box');
+            const pollInput = document.querySelector('.poll-input');
+            const optionsContainer = document.querySelector('.options-container');
+            pollBox.style.display = 'block'; // Show the button
+            pollInput.style.display = 'none'; // Hide the text box
+            pollInput.value = '';
+            optionsContainer.style.display = 'none'; // Hide options container
+            const optionInputs = document.querySelectorAll('.option-input');
+            optionInputs.forEach(input => input.remove());
+        }
+
+        function clearAllPolls() {
+            if (confirm('Are you sure you want to delete all polls?')) {
+                localStorage.removeItem('polls');
+                displayPolls(); // Refresh polls list
+                alert('All polls deleted!');
+            }
+        }
+    </script>
+</body>
+</html>

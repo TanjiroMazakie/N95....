@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ban a Player</title>
+    <style>
+        body {
+            background-color: blue; /* Set the background to blue */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
+        .large-text {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .player-select-box {
+            margin-top: 20px;
+        }
+        .player-select {
+            width: 100%;
+            height: 30px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .reason-input {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .report-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: lightblue;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p class="large-text">/ban-ip &lt;IP|username&gt; [reason] - This command bans a player by their IP, preventing anyone from connecting to your server from the same IP address. If you do not know the IP of a player, you can use the username of an online player to ban their current IP. Providing a reason is optional.</p>
+
+        <p>But if you are unable to understand, just simply choose the player name from here:</p>
+        <div class="player-select-box">
+            <select class="player-select" id="playerSelect">
+                <option value="">Select a player</option>
+                <option value="Aarav Pastor">Aarav Pastor</option>
+                <option value="Arsh Singh">Arsh Singh</option>
+                <option value="Arshaan Akhtar">Arshaan Akhtar</option>
+                <option value="Shreyash Shukla">Shreyash Shukla</option>
+                <option value="Akshit Shukla">Akshit Shukla</option>
+                <option value="Earth Ahuja">Earth Ahuja</option>
+                <option value="Neerav Kumar">Neerav Kumar</option>
+                <option value="Darsh Srivastava">Darsh Srivastava</option>
+                <option value="Adi">Adi</option>
+                <option value="Shaurya">Shaurya</option>
+                <option value="Rishab">Rishab</option>
+                <option value="Subh">Subh</option>
+                <option value="Akkie">Akkie</option>
+                <option value="Vignesh">Vignesh</option>
+                <option value="Vishwa Pratap">Vishwa Pratap</option>
+                <option value="Ashwin">Ashwin</option>
+                <option value="Tejas Gupta">Tejas Gupta</option>
+                <option value="Kushagra Gowsami">Kushagra Gowsami</option>
+                <option value="Isaan">Isaan</option>
+                <option value="Aryan">Aryan</option>
+                <option value="Akshit Jha">Akshit Jha</option>
+                <option value="Ayush">Ayush</option>
+                <option value="Priyanshu">Priyanshu</option>
+            </select>
+            <textarea class="reason-input" placeholder="Write your reason here..."></textarea>
+            <button class="report-button" onclick="reportPlayer()">Report</button>
+            <p class="error-message" id="error-message">Error: Player not found</p>
+        </div>
+    </div>
+
+    <script>
+        function reportPlayer() {
+            const playerSelect = document.getElementById('playerSelect');
+            const reasonInput = document.querySelector('.reason-input');
+            const errorMessage = document.getElementById('error-message');
+            if (playerSelect.value === '') {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                alert('Player ' + playerSelect.value + ' has been reported for: ' + reasonInput.value);
+                // Here you can add code to handle the player report
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up with ID</title>
+    <style>
+        body {
+            background-color: white; /* Set background to white */
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        .signup-container {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: center; /* Center align text */
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .signup-form label {
+            align-self: flex-start;
+            margin: 10px 0 5px 0;
+            font-size: 16px;
+            color: grey;
+        }
+        .signup-form input {
+            margin: 0 0 10px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .signup-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .header-text {
+            font-size: 24px; /* Set font size */
+            color: grey; /* Set text color */
+            margin-bottom: 20px; /* Margin below the header text */
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="header-text">Sign in</div>
+        <form class="signup-form" id="signupForm">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" class="signup-button" onclick="validateEmail()">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function validateEmail() {
+            const validEmails = [
+                "aarav.n95", "arsh.n95", "arshaan.n95", "shreyash.n95", "akshit.n95",
+                "earth.n95", "neerav.n95", "darsh.n95", "adi.n95", "shaurya.n95",
+                "rishab.n95", "priyanshu.n95", "aryan.n95", "akkie.n95", "vignesh.n95",
+                "subh.n95", "ayush.n95", "akshit-jha.n95", "aryan.n95", "vishwa.n95",
+                "ashwin.n95", "tejas.n95", "kushagra.n95"
+            ];
+
+            const emailInput = document.getElementById('email').value.trim();
+            const passwordInput = document.getElementById('password').value.trim();
+
+            if (validEmails.includes(emailInput)) {
+                // Redirect to a white page after validation
+                window.location.href = 'thankyou-id.html';
+            } else {
+                alert('Email not recognized. Please use a valid N95 email.');
+            }
+        }
+    </script>
+</body>
+</html>

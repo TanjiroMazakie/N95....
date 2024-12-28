@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: white; /* Set background to white */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: black; /* Set text color to black */
+            text-align: center;
+        }
+        .loading-animation {
+            font-size: 48px; /* Set font size for animation */
+            margin-bottom: 20px; /* Margin below animation */
+        }
+    </style>
+</head>
+<body>
+    <div class="animate__animated animate__zoomIn">
+        <div class="loading-animation">Loading...</div>
+        <div>Getting you to the help...</div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = 'help1.html';
+        }, 5000);
+    </script>
+</body>
+</html>

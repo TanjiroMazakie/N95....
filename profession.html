@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profession Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: white; /* Set background to white */
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 70px; /* Move the logo further to the right */
+            width: 80px; /* Make the logo a bit smaller */
+            height: auto;
+        }
+        .rectangle-box {
+            position: absolute;
+            top: 10px;
+            left: 170px; /* Position it after the logo */
+            width: 755px; /* Set box width */
+            height: 40px; /* Set box height */
+            border: 2px solid black; /* Set border color */
+            border-radius: 5px; /* Rounded corners */
+            display: flex;
+            align-items: center;
+            padding: 0 10px; /* Add padding inside the box */
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border: 1px solid #ddd;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {background-color: #f1f1f1}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .button-container {
+            position: absolute;
+            top: 20px; /* Position 20px from the top */
+            right: 20px; /* Position 20px from the right */
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center align buttons */
+        }
+        .join-button, .signin-button {
+            width: 97.78px; /* Set button width */
+            height: 48px; /* Set button height */
+            border-radius: 4px; /* Rounded corners */
+            font-size: 16px; /* Set font size */
+            cursor: pointer; /* Pointer cursor */
+            text-align: center; /* Center align text */
+            line-height: 48px; /* Center text vertically */
+            margin-left: 10px; /* Space between buttons */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .join-button {
+            background-color: blue; /* Set background color */
+            color: white; /* Set text color */
+            border: none; /* Remove border */
+        }
+        .signin-button {
+            background-color: transparent; /* Transparent background */
+            color: black; /* Set text color */
+            border: 2px solid lightblue; /* Light blue border */
+        }
+        .white-box {
+            width: 450px; /* Set box width */
+            height: 450px; /* Set box height */
+            background-color: white; /* White background */
+            border: 2px solid grey; /* Gray border */
+            border-radius: 10px; /* Rounded corners */
+            position: absolute;
+            top: 100px; /* Position box lower on the screen */
+            left: 50%;
+            transform: translateX(-50%); /* Center the box horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px; /* Add padding inside the box */
+            box-sizing: border-box; /* Include padding in box dimensions */
+        }
+        .idk-img {
+            width: 40%; /* Set image width to fit the box */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Space below the image */
+        }
+        .exit-button {
+            position: absolute;
+            top: 10px; /* Position 10px from the top */
+            right: 10px; /* Position 10px from the right */
+            width: 24px; /* Set image width */
+            height: 24px; /* Set image height */
+            cursor: pointer; /* Pointer cursor */
+        }
+        .message {
+            width: 402px; /* Set message width */
+            height: 29px; /* Set message height */
+            font-size: 20px; /* Set font size */
+            color: black; /* Set text color */
+            text-align: center; /* Center align text */
+            margin-bottom: 20px; /* Space below the text */
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 400px; /* Set button width */
+            height: 40px; /* Set button height */
+            border: none;
+            border-radius: 4px;
+            font-size: 16px; /* Set font size */
+            font-weight: bold; /* Set font weight */
+            cursor: pointer;
+            margin: 10px 0; /* Set margin */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .button img {
+            width: 32px; /* Slightly larger width for logos */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between image and text */
+        }
+        .google-button {
+            background-color: #4285F4; /* Google Blue */
+            color: white; /* Text color */
+        }
+        .id-button {
+            background-color: white; /* No color */
+            color: black; /* Text color */
+            border: 1px solid #ddd; /* Add border */
+        }
+        .disclaimer {
+            margin-top: 10px; /* Margin above disclaimer */
+            width: 400px; /* Set text width to match button */
+            font-size: 12px; /* Set font size */
+            color: grey; /* Set text color to grey */
+            text-align: center; /* Center align text */
+        }
+        .blue-text {
+            color: blue; /* Set link text color to blue */
+        }
+        .join-now {
+            margin-top: 10px; /* Margin above join now text */
+            width: 429px; /* Set text width */
+            height: 24px; /* Set text height */
+            font-size: 16px; /* Increase font size */
+            color: grey; /* Set text color to grey */
+            text-align: center; /* Center align text */
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="rectangle-box">
+        <div class="dropdown">
+            <span>Company</span>
+            <img src="arrow.png" alt="Arrow" style="margin-left: 10px;">
+            <div class="dropdown-content">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="signup.html" class="join-button">Join</a>
+        <a href="signin.html" class="signin-button">Sign in</a>
+    </div>
+    <div class="white-box" id="whiteBox">
+        <img src="idk.png" alt="IDK" class="idk-img">
+        <div class="message">Sign in to view more Professions</div>
+        <a href="google-signin.html" class="button google-button">
+            <img src="google.png" alt="Google Logo">Continue with Google
+        </a>
+        <a href="signup-id-page.html" class="button id-button">Sign up with ID</a>
+        <div class="disclaimer">or</div>
+        <div class="join-now">
+            New to N95? <a href="signup.html" class="blue-text" style="text-decoration: underline;">Join Now</a>
+        </div>
+        <div class="disclaimer">
+            By clicking Continue to join or sign in, you agree to N95’s <span class="blue-text">User Agreement</span>, <span class="blue-text">Privacy Policy</span>, and <span class="blue-text">Cookie Policy</span>.
+        </div>
+        <img src="exit.png" alt="Exit" class="exit-button" onclick="closeBox()">
+    </div>
+
+    <script>
+        function closeBox() {
+            const whiteBox = document.getElementById('whiteBox');
+            whiteBox.style.display = 'none'; // Hide the box
+        }
+    </script>
+</body>
+</html>

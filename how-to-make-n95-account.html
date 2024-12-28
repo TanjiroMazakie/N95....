@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>How to Make an N95 Account</title>
+    <style>
+        body {
+            background-color: green; /* Set the background to green */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+        }
+        .loading-message {
+            display: block;
+            font-size: 40px; /* Large text for loading message */
+        }
+        .final-message {
+            display: none;
+            font-size: 72px; /* Extra large text for final message */
+            font-weight: bold;
+        }
+        .additional-text {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-message" class="loading-message">Loading...</div>
+    <div id="content">
+        <a href="account-creation.html" class="final-message">WANNA MAKE YOUR ACCOUNT?</a>
+        <div class="additional-text">THIS WILL NOT CAUSE ANYTHING IT WILL BE JUST FOR THIS WEBSITE. IT WILL NOT ASK FOR ANY PASSWORD AND EMAIL. YOU WILL GET A CUSTOM EMAIL FROM THE CREATOR OF THE WEBSITE.</div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('loading-message').style.display = 'none';
+            document.querySelector('.final-message').style.display = 'block';
+            document.querySelector('.additional-text').style.display = 'block';
+        }, 5000);
+    </script>
+</body>
+</html>

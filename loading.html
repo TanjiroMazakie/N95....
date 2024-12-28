@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            flex-direction: column; /* Arrange content in a column */
+            text-align: center; /* Center align text */
+        }
+        .message {
+            font-size: 60px; /* Increase font size */
+            color: #39ff14; /* Set neon green text color */
+            text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 40px #39ff14, 0 0 50px #39ff14, 0 0 60px #39ff14, 0 0 70px #39ff14; /* Add neon effect */
+        }
+        .sub-message {
+            font-size: 24px; /* Set font size for the sub-message */
+            color: #39ff14; /* Set neon green text color */
+            text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 40px #39ff14, 0 0 50px #39ff14, 0 0 60px #39ff14, 0 0 70px #39ff14; /* Add neon effect */
+        }
+        .continue-button {
+            margin-top: 20px; /* Margin above the button */
+            width: 200px; /* Set width of the button */
+            height: 60px; /* Set height of the button */
+            background-color: #00f; /* Set background color to blue */
+            color: #00f; /* Set text color to blue */
+            border: none; /* Remove border */
+            border-radius: 4px; /* Rounded corners */
+            font-size: 24px; /* Set font size */
+            font-weight: bold; /* Set font weight */
+            cursor: pointer; /* Pointer cursor */
+            text-align: center; /* Center align text */
+            line-height: 60px; /* Center text vertically */
+            text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 60px #00f, 0 0 70px #00f; /* Add neon effect */
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="loadingMessage" class="message">Getting things ready for you...</div>
+    <div id="subMessage" class="sub-message" style="display: none;">Ready to enter the website?</div>
+    <button id="continueButton" class="continue-button" style="display: none;" onclick="redirectToIndex()">Continue</button>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function getRandomRgbColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        const email = getQueryParam('email');
+        const loadingMessage = document.getElementById('loadingMessage');
+        const subMessage = document.getElementById('subMessage');
+        const continueButton = document.getElementById('continueButton');
+        const body = document.getElementById('body');
+
+        setTimeout(() => {
+            loadingMessage.textContent = "Proceeding to next setup...";
+            body.style.backgroundColor = getRandomRgbColor();
+            setTimeout(() => {
+                loadingMessage.textContent = "Getting things ready for you...";
+                body.style.backgroundColor = getRandomRgbColor();
+                setTimeout(() => {
+                    loadingMessage.textContent = `WELCOME ${email.replace('.n95', '').toUpperCase()}`;
+                    subMessage.style.display = 'block';
+                    continueButton.style.display = 'block';
+                    body.style.backgroundColor = getRandomRgbColor();
+                }, 10000);
+            }, 5000);
+        }, 5000);
+
+        function redirectToIndex() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

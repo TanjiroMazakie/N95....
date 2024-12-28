@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Page</title>
+    <style>
+        body {
+            background-color: white; /* Set background to white */
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 70px; /* Position logo to the left */
+            width: 80px; /* Set logo width */
+            height: auto;
+        }
+        .button-container {
+            position: absolute;
+            top: 20px; /* Position 20px from the top */
+            right: 20px; /* Position 20px from the right */
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center align buttons */
+        }
+        .join-button, .signin-button {
+            width: 97.78px; /* Set button width */
+            height: 48px; /* Set button height */
+            border-radius: 4px; /* Rounded corners */
+            font-size: 16px; /* Set font size */
+            cursor: pointer; /* Pointer cursor */
+            text-align: center; /* Center align text */
+            line-height: 48px; /* Center text vertically */
+            margin-left: 10px; /* Space between buttons */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .join-button {
+            background-color: blue; /* Set background color */
+            color: white; /* Set text color */
+            border: none; /* Remove border */
+        }
+        .signin-button {
+            background-color: transparent; /* Transparent background */
+            color: black; /* Set text color */
+            border: 2px solid lightblue; /* Light blue border */
+        }
+        .icon-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Arrange image and text in a column */
+            text-align: center;
+            margin-right: 20px; /* Space between icon and button */
+        }
+        .icon-container img {
+            width: 30px; /* Set image width */
+            height: 22px; /* Set image height */
+            margin-bottom: 4px; /* Space between image and text */
+        }
+        .icon-container span {
+            font-size: 12px; /* Set text size */
+            color: black; /* Set text color */
+        }
+        .vertical-line {
+            height: 48px; /* Match the height of join button */
+            width: 2px; /* Set the width of the line */
+            background-color: grey; /* Set line color */
+            margin-right: 10px; /* Space between line and button */
+        }
+        .center-box {
+            width: 368.78px; /* Set box width */
+            height: 638.5px; /* Set box height */
+            border: 2px solid lightgrey; /* Set box border color */
+            border-radius: 15px; /* Add rounded corners */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content at the top */
+            align-items: center;
+            padding: 20px; /* Add padding inside the box */
+            box-sizing: border-box; /* Include padding in box dimensions */
+            position: absolute;
+            top: 120px; /* Position box slightly higher on the page */
+        }
+        .center-box .title {
+            font-size: 24px; /* Set title font size */
+            text-align: center; /* Center align text */
+            margin-bottom: 10px; /* Space below the title */
+        }
+        .center-box .subtitle {
+            font-size: 16px; /* Set subtitle font size */
+            text-align: center; /* Center align text */
+            color: black; /* Set subtitle color */
+            margin-bottom: 20px; /* Space below the subtitle */
+        }
+        .small-box {
+            width: 368.78px; /* Set small box width */
+            height: 110px; /* Set small box height */
+            border: 2px solid lightgrey; /* Set small box border color */
+            border-radius: 15px; /* Add rounded corners */
+            display: flex;
+            align-items: center;
+            padding: 10px; /* Add padding inside the small box */
+            margin-bottom: 20px; /* Space below the small box */
+            box-sizing: border-box; /* Include padding in box dimensions */
+            cursor: pointer; /* Make box clickable */
+        }
+        .small-box .top-text {
+            font-size: 17.5px; /* Set top text size */
+            width: 121.17px; /* Set top text width */
+            margin-bottom: 5px; /* Space below the top text */
+            color: black; /* Set text color */
+            font-weight: normal; /* Make text normal weight */
+        }
+        .small-box .bottom-text {
+            font-size: 24px; /* Set bottom text size */
+            width: 121.17px; /* Set bottom text width */
+            color: black; /* Set text color */
+            font-weight: normal; /* Make text normal weight */
+        }
+        .small-box img {
+            width: 96px; /* Set image width */
+            height: 110px; /* Set image height */
+            margin-left: auto; /* Push image to the right */
+            border-radius: 0 15px 15px 0; /* Rounded corners for the right side */
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="button-container">
+        <a href="games.html" class="icon-container">
+            <img src="games.png" alt="Games">
+            <span>Games</span>
+        </a>
+        <div class="vertical-line"></div>
+        <a href="desktop.html" class="icon-container">
+            <img src="desktop.png" alt="Get the App">
+            <span>Get the App</span>
+        </a>
+        <div class="vertical-line"></div>
+        <a href="signup.html" class="join-button">Join</a>
+        <div class="vertical-line"></div>
+        <a href="signin.html" class="signin-button">Sign in</a>
+    </div>
+    <div class="center-box">
+        <div class="title">Connect over fun, daily games</div>
+        <div class="subtitle">Prep your mind for the workday and compare results.</div>
+        <a href="loading2.html" class="small-box">
+            <div>
+                <div class="top-text">Play various games!!!</div>
+                <div class="bottom-text">Roblox</div>
+            </div>
+            <img src="roblox.png" alt="Roblox">
+        </a>
+        <a href="loading3.html" class="small-box">
+            <div>
+                <div class="top-text">Show your creativity!!</div>
+                <div class="bottom-text">Minecraft</div>
+            </div>
+            <img src="minecraft.png" alt="Minecraft">
+        </a>
+        <a href="loading4.html" class="small-box">
+            <div>
+                <div class="top-text">Kill and Booyahh!</div>
+                <div class="bottom-text">Free Fire</div>
+            </div>
+            <img src="freefire.png" alt="Free Fire">
+        </a>
+        <a href="loading5.html" class="small-box">
+            <div>
+                <div class="top-text">The smaller the circle, the better the people.</div>
+                <div class="bottom-text">Fortnite</div>
+            </div>
+            <img src="fortnite.png" alt="Fortnite">
+        </a>
+    </div>
+</body>
+</html>

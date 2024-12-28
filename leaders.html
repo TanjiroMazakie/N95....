@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaders Page</title>
+    <style>
+        body {
+            background-color: blue; /* Set the background to blue */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+        .blue-line {
+            height: 15px; /* Adjust the height to make the line moderately thicker */
+            background-color: blue; /* Set the color of the line */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            padding: 5px 10px; /* Add padding for better spacing */
+        }
+        .blue-line .home-search {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+        }
+        .nav-item {
+            color: white; /* Set text color to white */
+            font-size: 18px; /* Set font size */
+            margin-right: 20px; /* Space between text items */
+            position: relative;
+        }
+        .nav-item a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .nav-item.active::after {
+            content: ''; /* Empty content for the pseudo-element */
+            position: absolute;
+            bottom: -5px; /* Position it below the text */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: yellow; /* Yellow line color */
+        }
+        .search-bar {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            background-color: white; /* Set background color to white */
+            padding: 3px; /* Padding for better spacing */
+            border-radius: 3px; /* Rounded corners */
+            margin-right: 20px; /* Space between search bar and next item */
+        }
+        .search-bar input {
+            border: none; /* Remove border */
+            outline: none; /* Remove outline */
+            padding: 3px; /* Padding for input */
+            margin-right: 3px; /* Space between input and icon */
+            font-size: 14px; /* Set font size */
+        }
+        .search-bar img {
+            width: 16px; /* Set icon width */
+            height: 16px; /* Set icon height */
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
+        .content h1 {
+            font-size: 32px; /* Make the text big */
+            margin: 0 0 20px 0; /* Margin for spacing */
+        }
+        .content p {
+            font-size: 18px;
+            margin: 0 0 10px 0; /* Margin for spacing */
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .content th, .content td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: left;
+        }
+        .content th {
+            background-color: #005cbf; /* Blue background for table header */
+        }
+        .content td {
+            background-color: blue; /* Same color as background */
+            color: white;
+        }
+        .content a {
+            color: white;
+            text-decoration: none;
+        }
+        .info-big {
+            font-size: 24px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .info-steps {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-line">
+        <div class="home-search">
+            <div class="nav-item"><a href="index.html">Home</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <img src="search-icon.png" alt="Search Icon">
+            </div>
+            <div class="nav-item"><a href="members.html">Members</a></div>
+            <div class="nav-item"><a href="group.html">Group</a></div>
+            <div class="nav-item"><a href="help.html">Help</a></div>
+            <div class="nav-item"><a href="guide.html">Guide</a></div>
+            <div class="nav-item"><a href="tuition.html">Tuition</a></div>
+            <div class="nav-item"><a href="polls.html">Polls</a></div>
+            <div class="nav-item active"><a href="leaders.html">Leaders</a></div>
+        </div>
+    </div>
+
+    <!-- Main content of the Leaders page -->
+    <div class="content">
+        <h1>Leaders</h1>
+        <table id="leadersTable">
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>Community Admin</th>
+                    <th>Choosing Type</th>
+                    <th>Date of Registration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><a href="aarav.html" target="_blank">Aarav Pastor</a></td>
+                    <td>Creation</td>
+                    <td>17 January 2021</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="earth.html" target="_blank">Earth Ahuja</a></td>
+                    <td>Voting</td>
+                    <td>4 November 2023</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><a href="neerav.html" target="_blank">Neerav Kumar</a></td>
+                    <td>Creation</td>
+                    <td>7 January 2024</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><a href="arshaan.html" target="_blank">Arshaan Akhtar</a></td>
+                    <td>Football Management</td>
+                    <td>27 August 2024</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><a href="darsh.html" target="_blank">Darsh Srivastava</a></td>
+                    <td>Voting</td>
+                    <td>25 September 2024</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="info-big">If you also want to be a community admin, contact one of the admins on this table or contact 8736883934.</p>
+
+        <p class="info-steps">Steps to become a community admin:</p>
+        <ol class="info-steps">
+            <li>There will be voting</li>
+            <li>If you pass the voting, we will ask some questions</li>
+            <li>Then Community Admins will discuss together and make you an admin</li>
+            <li>Enjoy :)</li>
+        </ol>
+    </div>
+</body>
+</html>

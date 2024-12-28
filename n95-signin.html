@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N95 Sign In</title>
+    <style>
+        body {
+            background-color: grey; /* Set background to grey */
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .large-square {
+            width: 500px; /* Increase width of the square */
+            height: 500px; /* Increase height of the square */
+            background-color: white; /* White background */
+            border: 2px solid black; /* Black border */
+            display: flex; /* Display flex to center content */
+            flex-direction: column; /* Arrange content in a column */
+            justify-content: flex-start; /* Align content to the top */
+            align-items: center; /* Center align content */
+            position: relative; /* Position relative to place logo */
+            padding-top: 20px; /* Add padding to the top */
+        }
+        .logo {
+            position: absolute; /* Position logo absolutely */
+            top: 10px; /* 10px from the top */
+            left: 10px; /* 10px from the left */
+            width: 80px; /* Set logo width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .sub-header-text {
+            font-size: 24px; /* Set font size */
+            color: black; /* Set text color to black */
+            text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black; /* Add RGB glow and neon effect */
+            margin-top: 20px; /* Margin above the sub-header text */
+        }
+        .help-text {
+            font-size: 12px; /* Set font size */
+            color: black; /* Set text color to black */
+            margin-top: 10px; /* Margin above the help text */
+        }
+        .blue-link {
+            color: blue; /* Set link text color to blue */
+            text-decoration: underline; /* Underline the link */
+            cursor: pointer; /* Set cursor to pointer */
+        }
+        .input-box {
+            margin-top: 10px; /* Margin above the input box */
+            padding: 10px; /* Padding for the input box */
+            width: 80%; /* Set width to 80% of the square */
+            font-size: 16px; /* Set font size */
+            border: 1px solid #ddd; /* Border for the input box */
+            border-radius: 4px; /* Rounded corners for the input box */
+        }
+        .error-message {
+            color: red; /* Set error message color to red */
+            font-size: 14px; /* Set error message font size */
+            margin-top: 5px; /* Margin above the error message */
+        }
+        .disclaimer {
+            margin-top: 20px; /* Margin above disclaimer */
+            width: 80%; /* Set text width to match button */
+            font-size: 12px; /* Set font size */
+            color: black; /* Set text color */
+            text-align: center; /* Center align text */
+        }
+        .blue-text {
+            color: blue; /* Set link text color to blue */
+        }
+        .continue-button, .signin-options-button, .go-back-button, .help-button {
+            margin-top: 20px; /* Margin above the button */
+            width: 80%; /* Set width to 80% of the square */
+            height: 48px; /* Set height of the button */
+            background-color: blue; /* Set background color to blue */
+            color: white; /* Set text color to white */
+            border: none; /* Remove border */
+            border-radius: 4px; /* Rounded corners */
+            font-size: 16px; /* Set font size */
+            font-weight: bold; /* Set font weight */
+            cursor: pointer; /* Pointer cursor */
+            text-align: center; /* Center align text */
+            line-height: 48px; /* Center text vertically */
+        }
+        .go-back-button {
+            background-color: transparent; /* Transparent background */
+            color: blue; /* Set text color to blue */
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            align-items: center; /* Center align content vertically */
+            justify-content: center; /* Center align content horizontally */
+        }
+        .modal-content {
+            background-color: white; /* White background */
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px; /* Maximum width */
+            text-align: center; /* Center align text */
+            border-radius: 10px; /* Rounded corners */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .loading-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            align-items: center; /* Center align content vertically */
+            justify-content: center; /* Center align content horizontally */
+            color: black; /* Set text color to black */
+        }
+        .loading-animation {
+            font-size: 48px; /* Set animation font size */
+            margin-bottom: 20px; /* Margin below animation */
+        }
+    </style>
+</head>
+<body>
+    <div class="large-square">
+        <img src="logo.png" alt="Logo" class="logo">
+        <div class="sub-header-text">Sign in with your N95 ID</div>
+        <div class="help-text">Need any help? <span class="blue-link" onclick="redirectToLoading()">Get Help</span></div>
+        <input type="text" id="email" class="input-box" placeholder="Enter your email">
+        <div id="emailError" class="error-message"></div>
+        <input type="password" id="password" class="input-box" placeholder="Enter your password">
+        <div id="passwordError" class="error-message"></div>
+        <button class="continue-button" onclick="validateForm()">Continue</button>
+        <div class="disclaimer">
+            By clicking Continue to join or sign in, you agree to N95’s <span class="blue-text">User Agreement</span>, <span class="blue-text">Privacy Policy</span>, and <span class="blue-text">Cookie Policy</span>.
+        </div>
+        <button class="go-back-button" onclick="redirectToLogin()"><-- Go back</button>
+        <div id="loadingText" class="loading" style="display: none;"></div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span[_{{{CITATION{{{_1{](https://github.com/bgoonz/web-dev-utils-package/tree/65a7b21c0444f4cbeb3c313a750fb43560047e77/personal-utilities%2Fcopy-2-clip%2FREADME.md)[_{{{CITATION{{{_2{](https://github.com/princu09/loading/tree/8c7b755603e27ef2e48d1d24a2a323033def8ffa/ReadMe.md)[_{{{CITATION{{{_3{](https://github.com/balagudeen/cloudassignment/tree/206b6b4e6c3594ad5376ad435eeb5f825ae0c3c4/login.php)[_{{{CITATION{{{_4{](https://github.com/Magicst6/TestserverEklasse/tree/eed5546daebb4f9fd2e8b1c4b4850cada4bf9141/sites%2Fperformance.schulverwaltungheimtest.ch%2Fwp-content%2Fthemes%2Fstructr%2FPage_Scripts%2FNotenbuchArchivLehrer.php)[_{{{CITATION{{{_5{](https://github.com/epsilva/guinter-front/tree/022b2d5a9b4ab6407896ac1ec317956e92f838c7/src%2Fpages%2FServico%2FModal%2Fstyles.js)        </div>
+    </div>
+
+    <div id="loadingModal" class="loading-modal">
+        <div class="loading-animation">Loading...</div>
+        <div>Getting you to the help...</div>
+    </div>
+
+    <script>
+        function validateForm() {
+            const validEmails = [
+                "aarav.n95", "arsh.n95", "arshaan.n95", "shreyash.n95", "akshit.n95",
+                "earth.n95", "neerav.n95", "darsh.n95", "adi.n95", "shaurya.n95",
+                "rishab.n95", "priyanshu.n95", "aryan.n95", "akkie.n95", "vignesh.n95",
+                "subh.n95", "ayush.n95", "akshit-jha.n95", "aryan.n95", "vishwa.n95",
+                "ashwin.n95", "tejas.n95", "kushagra.n95"
+            ];
+
+            const emailInput = document.getElementById('email').value.trim();
+            const passwordInput = document.getElementById('password').value.trim();
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const loadingText = document.getElementById('loadingText');
+
+            let isValid = true;
+
+            // Validate email
+            if (emailInput === "") {
+                emailError.textContent = "Enter email!";
+                isValid = false;
+            } else if (!validEmails.includes(emailInput)) {
+                emailError.textContent = "Incorrect email";
+                isValid = false;
+            } else {
+                emailError.textContent = "";
+            }
+
+            // Validate password
+            if (passwordInput === "") {
+                passwordError.textContent = "Enter password!";
+                isValid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            if (isValid) {
+                // Display loading text and animation
+                loadingText.style.display = 'block';
+                loadingText.textContent = "Checking Info...";
+                setTimeout(() => {
+                    loadingText.textContent = "Proceeding to next setup";
+                    setTimeout(() => {
+                        // Redirect to white page
+                        window.location.href = `loading.html?email=${emailInput}`;
+                    }, 5000);
+                }, 5000);
+            }
+        }
+
+        function redirectToLoading() {
+            window.location.href = 'loading1.html';
+        }
+
+        function redirectToLogin() {
+            window.location.href = 'login.html';
+        }
+
+        // Function to show the modal when trying to access other sections
+        function showSignFirstModal() {
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const protectedLinks = document.querySelectorAll('.protected-link');
+            protectedLinks.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    showSignFirstModal();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

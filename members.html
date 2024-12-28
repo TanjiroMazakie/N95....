@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Members Page</title>
+    <style>
+        body {
+            background-color: #87CEFA; /* Set the background to sky blue */
+            background-image: url('https://example.com/flower-background.jpg'); /* Add a floral background image */
+            background-size: cover; /* Cover the entire page */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+        .blue-line {
+            height: 15px; /* Adjust the height to make the line moderately thicker */
+            background-color: blue; /* Set the color of the line */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            padding: 5px 10px; /* Add padding for better spacing */
+        }
+        .blue-line .home-search {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+        }
+        .nav-item {
+            color: white; /* Set text color to white */
+            font-size: 18px; /* Set font size */
+            margin-right: 20px; /* Space between text items */
+            position: relative;
+        }
+        .nav-item a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .nav-item.active::after {
+            content: ''; /* Empty content for the pseudo-element */
+            position: absolute;
+            bottom: -5px; /* Position it below the text */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: yellow; /* Yellow line color */
+        }
+        .search-bar {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            background-color: white; /* Set background color to white */
+            padding: 3px; /* Padding for better spacing */
+            border-radius: 3px; /* Rounded corners */
+            margin-right: 20px; /* Space between search bar and next item */
+        }
+        .search-bar input {
+            border: none; /* Remove border */
+            outline: none; /* Remove outline */
+            padding: 3px; /* Padding for input */
+            margin-right: 3px; /* Space between input and icon */
+            font-size: 14px; /* Set font size */
+        }
+        .search-bar img {
+            width: 16px; /* Set icon width */
+            height: 16px; /* Set icon height */
+        }
+        .special-message {
+            text-align: center;
+            color: #39FF14; /* Neon green color */
+            font-size: 32px;
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+        }
+        table {
+            width: 80%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Add shadow to the table */
+            background-color: white; /* Set background color for the table */
+            border-radius: 8px; /* Add rounded corners to the table */
+        }
+        th {
+            background-color: #4CAF50; /* Green background for headers */
+            color: white; /* White text for headers */
+            padding: 12px;
+            text-align: center;
+        }
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Zebra stripe effect */
+        }
+        tr:hover {
+            background-color: #ddd; /* Hover effect */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-line">
+        <div class="home-search">
+            <div class="nav-item"><a href="index.html">Home</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <img src="search-icon.png" alt="Search Icon">
+            </div>
+            <div class="nav-item active"><a href="#">Members</a></div>
+            <div class="nav-item"><a href="group.html">Group</a></div>
+            <div class="nav-item"><a href="link.html">Link</a></div>
+            <div class="nav-item"><a href="help.html">Help</a></div>
+            <div class="nav-item"><a href="guide.html">Guide</a></div>
+            <div class="nav-item"><a href="tuition.html">Tuition</a></div>
+            <div class="nav-item"><a href="polls.html">Polls</a></div>
+            <div class="nav-item"><a href="leaders.html">Leaders</a></div>
+        </div>
+    </div>
+
+    <p class="special-message"><strong><em><u>We claimed a lot of members in this team to improve our strength and also we thank them all for being a part of this happy group. Once again, THANKS FOR YOUR SUPPORT!</u></em></strong></p>
+
+    <!-- Inserted Table -->
+    <table>
+        <tr>
+            <th>S No.</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Date of Birth</th>
+            <th>Profession</th>
+        </tr>
+        <tr><td>1</td><td>Aarav Pastor</td><td>11</td><td>17 January 2013</td><td>Cricket and Football</td></tr>
+        <tr><td>2</td><td>Arsh Singh</td><td>11</td><td>2 August 2013</td><td>Cricket and Football</td></tr>
+        <tr><td>3</td><td>Arshaan Akhtar</td><td>12</td><td></td><td>Football only</td></tr>
+        <tr><td>4</td><td>Shreyash Shukla</td><td>12</td><td>3 April 2012</td><td>Cricket and Football</td></tr>
+        <tr><td>5</td><td>Akshit Shukla</td><td>10</td><td>14 October 2014</td><td>Cricket and Football</td></tr>
+        <tr><td>6</td><td>Earth Ahuja</td><td>11</td><td>19 November 2013</td><td>Cricket and Football</td></tr>
+        <tr><td>7</td><td>Neerav Kumar</td><td>11</td><td>2 May 2013</td><td>Cricket and Football</td></tr>
+        <tr><td>8</td><td>Darsh Srivastava</td><td>11</td><td>28 March 2013</td><td>Cricket and Football</td></tr>
+        <tr><td>9</td><td>Adi</td><td>10</td><td>15 November 2014</td><td>Cricket and Football</td></tr>
+        <tr><td>10</td><td>Shaurya</td><td>10</td><td>2 November 2014</td><td>Cricket and Football</td></tr>
+        <tr><td>11</td><td>Rishab</td><td>11</td><td>20 March 2013</td><td>Cricket and Football</td></tr>
+        <tr><td>12</td><td>Subh</td><td>9</td><td></td><td>Cricket only</td></tr>
+        <tr><td>13</td><td>Akkie</td><td>9</td><td></td><td>Football only</td></tr>
+        <tr><td>14</td><td>Vignesh</td><td>13</td><td></td><td>Football and Cricket</td></tr>
+        <tr><td>15</td><td>Vishwa Pratap</td><td>11</td><td>3 July 2013</td><td>Cricket only</td></tr>
+        <tr><td>16</td><td>Ashwin</td><td>12</td><td></td><td>Football only</td></tr>
+        <tr><td>17</td><td>Tejas Gupta</td><td>11</td><td></td><td>Football and Cricket</td></tr>
+        <tr><td>18</td><td>Kushagra Gowsami</td><td>10</td><td></td><td>Football and Cricket</td></tr>
+        <tr><td>19</td><td>Isaan</td><td>10</td><td></td><td>Cricket and Football</td></tr>
+        <tr><td>20</td><td>Aryan</td><td>12</td><td></td><td>Cricket and Football</td></tr>
+        <tr><td>21</td><td>Akshit Jha</td><td>9</td><td></td><td>Cricket and Football</td></tr>
+        <tr><td>22</td><td>Ayush</td><td>12</td><td></td><td>Cricket and Football</td></tr>
+        <tr><td>23</td><td>Priyanshu</td><td>8</td><td></td><td>Football</td></tr>
+    </table>
+
+</body>
+</html>

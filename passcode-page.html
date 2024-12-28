@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passcode Page</title>
+    <style>
+        body {
+            background-color: #ccffcc; /* Light green background */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: black;
+        }
+        .rectangle {
+            width: 80%;
+            padding: 50px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+        }
+        .passcode-input {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .next-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rectangle">
+        <input type="password" class="passcode-input" placeholder="Enter your passcode">
+        <button class="next-button" onclick="goToWelcomePage()">Next</button>
+    </div>
+
+    <script>
+        function goToWelcomePage() {
+            window.location.href = 'welcome-page.html';
+        }
+    </script>
+</body>
+</html>

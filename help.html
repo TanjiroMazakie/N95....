@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help Page</title>
+    <style>
+        body {
+            background-color: blue; /* Set the background to blue */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+        .blue-line {
+            height: 15px; /* Adjust the height to make the line moderately thicker */
+            background-color: blue; /* Set the color of the line */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            padding: 5px 10px; /* Add padding for better spacing */
+        }
+        .blue-line .home-search {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+        }
+        .nav-item {
+            color: white; /* Set text color to white */
+            font-size: 18px; /* Set font size */
+            margin-right: 20px; /* Space between text items */
+            position: relative;
+        }
+        .nav-item a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .nav-item.active::after {
+            content: ''; /* Empty content for the pseudo-element */
+            position: absolute;
+            bottom: -5px; /* Position it below the text */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: yellow; /* Yellow line color */
+        }
+        .search-bar {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            background-color: white; /* Set background color to white */
+            padding: 3px; /* Padding for better spacing */
+            border-radius: 3px; /* Rounded corners */
+            margin-right: 20px; /* Space between search bar and next item */
+        }
+        .search-bar input {
+            border: none; /* Remove border */
+            outline: none; /* Remove outline */
+            padding: 3px; /* Padding for input */
+            margin-right: 3px; /* Space between input and icon */
+            font-size: 14px; /* Set font size */
+        }
+        .search-bar img {
+            width: 16px; /* Set icon width */
+            height: 16px; /* Set icon height */
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
+        .content p {
+            margin: 20px 0;
+        }
+        .content a {
+            display: block;
+            color: white;
+            text-decoration: underline;
+            margin: 5px 0;
+        }
+        .call-box {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: fit-content;
+        }
+        .call-icon {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-line">
+        <div class="home-search">
+            <div class="nav-item"><a href="index.html">Home</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <img src="search-icon.png" alt="Search Icon">
+            </div>
+            <div class="nav-item"><a href="members.html">Members</a></div>
+            <div class="nav-item"><a href="group.html">Group</a></div>
+            <div class="nav-item active"><a href="">Help</a></div>
+            <div class="nav-item"><a href="guide.html">Guide</a></div>
+            <div class="nav-item"><a href="tuition.html">Tuition</a></div>
+            <div class="nav-item"><a href="polls.html">Polls</a></div>
+            <div class="nav-item"><a href="leaders.html">Leaders</a></div>
+        </div>
+    </div>
+
+    <!-- Help Content -->
+    <div class="content">
+        <p>Submit feedback on content about you</p>
+        <p>Information in a knowledge panel generates automatically based on public information on the web.</p>
+        <p>Anyone can submit feedback on a search feature. If you're a verified user, and if the knowledge panel is about you, we can prioritize your feedback.</p>
+
+        <p><strong>Submit verified feedback</strong></p>
+        <p><strong>Important:</strong> To submit verified feedback, you must verify your identity. Once you verify your identity, we can make some corrections directly, like links to social profiles. You can also update your preferences to show the information you chose.</p>
+
+        <p>Go to N95 Search.</p>
+        <p>Sign in to the N95 Account that you used to verify your identity.</p>
+        <p>Check that your Web and App Activity is turned on.</p>
+        <p>In N95, search for your name or the entity you represent.</p>
+        <p>At the top of the knowledge panel, click Suggest edits. If you don’t find this option, remember:</p>
+        <ul>
+            <li>You must sign in with the same N95 ACCOUNT that you used to verify your identity.</li>
+            <li>Your N95 Account must be verified to represent this knowledge panel. Verify your identity or use a verified account to add users to the account.</li>
+        </ul>
+        <p>Next to the information you want to report, click Edit. If you have multiple suggestions, submit feedback for each item separately.</p>
+        <p>In the response box, enter a description of:</p>
+        <ul>
+            <li>What’s wrong with the existing information</li>
+            <li>Any content that we should remove</li>
+            <li>Any publicly accessible URLs that support your suggestion</li>
+        </ul>
+        <p>Click Send.</p>
+        <p>N95 reviews feedback from verified users within a few days, and sends a confirmation email with a resolution update about your feedback. This can sometimes take more time.</p>
+
+        <p><strong>Need other help?</strong></p>
+        <a href="suggest-specific-changes.html">Suggest specific changes</a>
+        <a href="give-feedback.html">Give feedback</a>
+        <a href="ban-player.html">Ban a Player</a>
+        <a href="update-subtitle.html">Update a subtitle</a>
+        <a href="update-description.html">Update a description</a>
+        <a href="add-social-profiles.html">Add social profiles</a>
+        <a href="how-to-make-n95-account.html">How to make N95 account</a>
+
+        <div class="call-box">
+            <img class="call-icon" src="call-icon.png" alt="Call Icon">
+            <p>8736883934</p>
+        </div>
+    </div>
+</body>
+</html>

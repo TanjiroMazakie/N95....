@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cricket Page</title>
+    <style>
+        body {
+            background-color: white; /* Set the background to white */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-image: url('background.jpg1'); /* Add background image */
+            background-size: cover; /* Cover the entire page */
+            background-attachment: fixed; /* Fix the background image in place */
+            background-position: center; /* Center the background image */
+        }
+        .blue-line {
+            height: 15px; /* Adjust the height to make the line moderately thicker */
+            background-color: blue; /* Set the color of the line */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            padding: 5px 10px; /* Add padding for better spacing */
+        }
+        .blue-line .home-search {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+        }
+        .nav-item {
+            color: white; /* Set text color to white */
+            font-size: 18px; /* Set font size */
+            margin-right: 20px; /* Space between text items */
+            position: relative;
+        }
+        .nav-item a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .nav-item.active::after {
+            content: ''; /* Empty content for the pseudo-element */
+            position: absolute;
+            bottom: -5px; /* Position it below the text */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: yellow; /* Yellow line color */
+        }
+        .search-bar {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            background-color: white; /* Set background color to white */
+            padding: 3px; /* Padding for better spacing */
+            border-radius: 3px; /* Rounded corners */
+            margin-right: 20px; /* Space between search bar and next item */
+        }
+        .search-bar input {
+            border: none; /* Remove border */
+            outline: none; /* Remove outline */
+            padding: 3px; /* Padding for input */
+            margin-right: 3px; /* Space between input and icon */
+            font-size: 14px; /* Set font size */
+        }
+        .search-bar img {
+            width: 16px; /* Set icon width */
+            height: 16px; /* Set icon height */
+        }
+        h1, h2 {
+            color: white; /* Set text color to white */
+        }
+        p {
+            color: white; /* Set text color to white */
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-line">
+        <div class="home-search">
+            <div class="nav-item"><a href="index.html">Home</a></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <img src="search-icon.png" alt="Search Icon">
+            </div>
+            <div class="nav-item"><a href="members.html">Members</a></div>
+            <div class="nav-item"><a href="group.html">Group</a></div>
+            <div class="nav-item"><a href="link.html">Link</a></div>
+            <div class="nav-item"><a href="help.html">Help</a></div>
+            <div class="nav-item"><a href="tuition.html">Tuition</a></div>
+            <div class="nav-item active"><a href="#">Cricket</a></div>
+            <div class="nav-item"><a href="polls.html">Polls</a></div>
+            <div class="nav-item"><a href="leaders.html">Leaders</a></div>
+        </div>
+    </div>
+
+    <!-- Cricket Information -->
+    <h1>HPL 2024 CAPTAINS</h1>
+    <p>CSK - Tejas</p>
+    <p>MI - Aarav</p>
+    <p>RCB - Darsh</p>
+    <p>KKR - Shreyash</p>
+    <p>GT - Rishab</p>
+    <p>RR - Neerav</p>
+    <p>PBKS - Akshit</p>
+    <p>SRH - Kushagra</p>
+    <p>DC - Akkie</p>
+    <p>LSG - Vignesh</p>
+    <p><strong>These captains are not valid. A re-spin will be conducted for HPL 2025.</strong></p>
+
+    <h2>Matches of HPL 2024</h2>
+    <p>CSK VS GT</p>
+    <p>KKR VS PBKS</p>
+    <p>LSG VS SRH</p>
+    <p>DC VS RR</p>
+    <p>RCB VS MI</p>
+    <p>CSK VS PBKS</p>
+    <p>KKR VS SRH</p>
+    <p>LSG VS RR</p>
+    <p>GT VS RCB</p>
+    <p>MI VS DC</p>
+    <p>CSK VS SRH</p>
+    <p>KKR VS RR</p>
+    <p>LSG VS RCB</p>
+    <p>GT VS DC</p>
+    <p>LSG VS MI</p>
+    <p>RR VS CSK</p>
+    <p>SRH VS MI</p>
+    <p>DC VS KKR</p>
+    <p>CSK VS MI</p>
+    <p>PBKS VS RCB</p>
+    <p>SRH VS LSG</p>
+    <p>KKR VS MI</p>
+    <p>CSK VS GT</p>
+    <p>PBKS VS LSG</p>
+    <p>DC VS KKR</p>
+    <p>SRH VS RCB</p>
+    <p>GT VS RR</p>
+    <p>DC VS KKR</p>
+    <p>PBKS VS RR</p>
+    <p>RCB VS GT</p>
+
+    <h2>ALL THE BEST!</h2>
+
+</body>
+</html>

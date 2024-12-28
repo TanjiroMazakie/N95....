@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N95 Sign In</title>
+    <style>
+        /* Existing styles */
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="group-members.html" class="protected-link">Group Members</a></li>
+            <li><a href="home.html" class="protected-link">Home</a></li>
+            <li><a href="tuition.html" class="protected-link">Tuition</a></li>
+            <li><a href="polls.html" class="protected-link">Polls</a></li>
+            <li><a href="leaders.html" class="protected-link">Leaders</a></li>
+            <li><a href="guide.html" class="protected-link">Guide</a></li>
+            <li><a href="group.html" class="protected-link">Group</a></li>
+        </ul>
+    </nav>
+
+    <div class="large-square">
+        <img src="logo.png" alt="Logo" class="logo">
+        <div class="sub-header-text">Sign in with your N95 ID</div>
+        <div class="help-text">Need any help? <span class="blue-link" onclick="redirectToHelp()">Get Help</span></div>
+        <input type="text" id="email" class="input-box" placeholder="Enter your email">
+        <div id="emailError" class="error-message"></div>
+        <input type="password" id="password" class="input-box" placeholder="Enter your password">
+        <div id="passwordError" class="error-message"></div>
+        <button class="continue-button" onclick="validateForm()">Continue</button>
+        <div class="disclaimer">
+            By clicking Continue to join or sign in, you agree to N95’s <span class="blue-text">User Agreement</span>, <span class="blue-text">Privacy Policy</span>, and <span class="blue-text">Cookie Policy</span>.
+        </div>
+        <button class="go-back-button" onclick="redirectToLogin()"><-- Go back</button>
+        <div id="loadingText" class="loading" style="display: none;"></div>
+    </div>
+
+    <div id="signFirstModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Sign First!!!!</p>
+            <button class="continue-button" onclick="redirectToLogin()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            const validEmails = [
+                "aarav.n95", "arsh.n95", "arshaan.n95", "shreyash.n95", "akshit.n95",
+                "earth.n95", "neerav.n95", "darsh.n95", "adi.n95", "shaurya.n95",
+                "rishab.n95", "priyanshu.n95", "aryan.n95", "akkie.n95", "vignesh.n95",
+                "subh.n95", "ayush.n95", "akshit-jha.n95", "aryan.n95", "vishwa.n95",
+                "ashwin.n95", "tejas.n95", "kushagra.n95"
+            ];
+
+            const emailInput = document.getElementById('email').value.trim();
+            const passwordInput = document.getElementById('password').value.trim();
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const loadingText = document.getElementById('loadingText');
+
+            let isValid = true;
+
+            // Validate email
+            if (emailInput === "") {
+                emailError.textContent = "Enter email!";
+                isValid = false;
+            } else if (!validEmails.includes(emailInput)) {
+                emailError.textContent = "Incorrect email";
+                isValid = false;
+            } else {
+                emailError.textContent = "";
+            }
+
+            // Validate password
+            if (passwordInput === "") {
+                passwordError.textContent = "Enter password!";
+                isValid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            if (isValid) {
+                // Display loading text and animation
+                loadingText.style.display = 'block';
+                loadingText.textContent = "Checking Info...";
+                setTimeout(() => {
+                    loadingText.textContent = "Proceeding to next setup";
+                    setTimeout(() => {
+                        // Redirect to white page
+                        window.location.href = `loading.html?email=${emailInput}`;
+                    }, 5000);
+                }, 5000);
+            }
+        }
+
+        function redirectToHelp() {
+            window.location.href = 'help.html';
+        }
+
+        function redirectToLogin() {
+            window.location.href = 'login.html';
+        }
+
+        // Function to show the modal when trying to access other sections
+        function showSignFirstModal() {
+            document.getElementById('signFirstModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('signFirstModal').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const protectedLinks = document.querySelectorAll('.protected-link');
+            protectedLinks.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    showSignFirstModal();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

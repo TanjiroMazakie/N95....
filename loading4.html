@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Page</title>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'); /* Import animate.css */
+
+        body {
+            background-color: white; /* Set background to white */
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 80px; /* Set logo width */
+            height: auto;
+        }
+        .freefire-img {
+            width: 200px; /* Make image larger */
+            height: auto;
+            animation: animate__shakeX 2s infinite; /* Apply shake animation */
+        }
+        .blue-box, .white-box {
+            width: 300px; /* Set box width */
+            height: 50px; /* Set box height */
+            border-radius: 5px; /* Rounded corners */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px; /* Set font size */
+            font-weight: bold; /* Bold text */
+            cursor: pointer; /* Pointer cursor */
+            text-decoration: none; /* Remove underline */
+            margin-top: 10px; /* Space between boxes */
+        }
+        .blue-box {
+            background-color: blue; /* Blue background for the first box */
+            color: white; /* White text color */
+        }
+        .white-box {
+            background-color: white; /* White background for the second box */
+            color: blue; /* Blue text color */
+            border: 2px solid blue; /* Blue border */
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <img src="freefire.png" alt="Free Fire" class="freefire-img animate__animated">
+    <a href="javascript:void(0)" class="blue-box" onclick="redirectWithDelay('login.html')">Login and play with friends!</a>
+    <a href="javascript:void(0)" class="white-box" onclick="redirectWithDelay('freefire.html')">Play Free Fire on your own</a>
+
+    <script>
+        // Custom animation for shake effect every 2 seconds
+        const freefireImg = document.querySelector('.freefire-img');
+        setInterval(() => {
+            freefireImg.classList.add('animate__shakeX');
+            setTimeout(() => {
+                freefireImg.classList.remove('animate__shakeX');
+            }, 1000); // Remove class after 1 second
+        }, 2000); // Reapply class every 2 seconds
+
+        // Function to redirect with delay
+        function redirectWithDelay(url) {
+            setTimeout(() => {
+                window.location.href = url;
+            }, 2000); // Redirect after 2 seconds
+        }
+    </script>
+</body>
+</html>
